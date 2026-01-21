@@ -1,50 +1,75 @@
-# Welcome to your Expo app 👋
+<p align="center">
+  <img src="./assets/images/logo.png" alt="TM-Vault Logo" height="40" />
+</p>
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+<h1 align="center">TM Vault</h1>
 
-## Get started
+<p align="center">
+  A mobile DeFi vault management app built with React Native & Expo
+</p>
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## Overview
 
-2. Start the app
+TM-Vault allows users to browse, invest in, and track DeFi vaults with varying risk levels and APY returns. Features include wallet connection, two-step deposit flows, portfolio tracking, and network management for HyperEVM.
 
-   ```bash
-   npx expo start
-   ```
+---
 
-In the output, you'll find options to open the app in a
+## Tech Stack
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- **React Native** + **Expo** - Cross-platform mobile framework
+- **TypeScript** - Type safety
+- **Expo Router** - File-based navigation
+- **Zustand** - State management with persistence
+- **NativeWind** - Tailwind CSS styling
+- **Lottie** - Loading and success animations
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+---
 
-## Get a fresh project
+## Architecture
 
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+app/           → Screens (Expo Router file-based routing)
+components/    → Reusable UI components
+services/      → Business logic layer (wallet, deposit, network)
+stores/        → Zustand state stores
+mocks/         → Mock data for development
+utils/         → Helper functions
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+The app follows a clean layered architecture with clear separation between UI, business logic, and data layers.
 
-## Learn more
+---
 
-To learn more about developing your project with Expo, look at the following resources:
+## Mock Implementation
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+All Web3 functionality is currently mocked:
 
-## Join the community
+- **Vaults** - Sample vaults with different risk/APY profiles
+- **Wallet** - Mock connection and USDC balance
+- **Transactions** - Simulated approve/deposit flow with delays
+- **Network** - Mock network detection and switching
 
-Join our community of developers creating universal apps.
+### Why Mocked?
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+The decision to mock Web3 was intentional to **prioritize UI/UX**, perfect **transactional states** (loading, success, error flows), and build a **clean architecture** for long-term maintainability.
+
+### Web3 Ready
+
+The architecture is fully prepared for real blockchain integration. Each service acts as a facade that can be updated to call real APIs - just replace the mock implementations in `services/` with actual wallet providers and contract calls.
+
+---
+
+## Getting Started
+
+```bash
+npm install
+npx expo start
+```
+
+---
+
+## License
+
+MIT
